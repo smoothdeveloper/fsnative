@@ -1,0 +1,10 @@
+.ionide
+.paket
+.vs
+*.fsproj.user
+packages
+build
+paket-files
+
+**/obj
+**/bin
