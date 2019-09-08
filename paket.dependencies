@@ -1,5 +1,5 @@
 source https://www.nuget.org/api/v2
 storage: none
 #nuget Microsoft.Extensions.DependencyModel
-nuget FSharp.Core
+nuget FSharp.Core = 4.1.17
 nuget System.Runtime.InteropServices.RuntimeInformation
