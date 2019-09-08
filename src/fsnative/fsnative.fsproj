@@ -3,8 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <OutputPath>../../build/$(Configuration)/$(Platform)</OutputPath>
-    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET_45</DefineConstants>
-    <DefineConstants Condition=" '$(TargetFrameworkVersion)' != 'v4.0' ">NOT_RUNNING_ON_4</DefineConstants>
   </PropertyGroup>
 
 
