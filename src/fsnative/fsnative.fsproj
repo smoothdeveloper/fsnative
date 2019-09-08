@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <OutputPath>../../build/$(Configuration)/$(Platform)</OutputPath>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET_45</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' != 'v4.0' ">NOT_RUNNING_ON_4</DefineConstants>
   </PropertyGroup>
+
+
   <ItemGroup>
     <Compile Include="Library.fs" />
   </ItemGroup>

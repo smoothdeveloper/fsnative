@@ -1,7 +1,8 @@
-#r "../build/Debug/AnyCPU/netstandard2.0/fsnative.dll"
+//#r "../build/Debug/AnyCPU/netstandard2.0/fsnative.dll"
+#r "../build/Debug/AnyCPU/net45/fsnative.dll"
 open System
-let libNames = [|"portmidi_x64.dll";"portmidi_x86.dll";"libportmidi.dylib";"libportmidi.so"|]
-let libPaths = [|@"C:\dev\src\gitlab.com\gauthier\portmidisharp\lib\win";"/usr/local/lib";|]
+let libNames = [|"portmidi.dll";"libportmidi.dylib";"libportmidi.so"|]
+let libPaths = [|@"C:\dev\src\gitlab.com\gauthier\portmidisharp\lib\win\x64";"/usr/local/lib";|]
 
 open fsnative
 

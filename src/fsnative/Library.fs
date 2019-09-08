@@ -111,9 +111,12 @@ module LibraryLoader =
         member x.FreeLibrary         (LoadedLibrary library)      = let res = Windows.Kernel32.FreeLibrary library           in if res = 0 then Ok () else Error res }
 
   let loadFunction l n (loader: ILibraryLoader) : 'f option =
-
-      loader.LoadFunctionPointer l n 
-      |> Option.map (fun (LoadedFunctionPointer ptr) -> Marshal.GetDelegateForFunctionPointer ptr)
+    loader.LoadFunctionPointer l n 
+    #if NET45
+    |> Option.map (fun (LoadedFunctionPointer ptr) -> Marshal.GetDelegateForFunctionPointer(ptr, typeof<'f>) :?> 'f)
+    #else
+    |> Option.map (fun (LoadedFunctionPointer ptr) -> Marshal.GetDelegateForFunctionPointer ptr)
+    #endif
 
   let withRuntimeLoader doWithLoader =
     doWithLoader (
